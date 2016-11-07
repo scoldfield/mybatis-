@@ -51,6 +51,10 @@
 			(1)"resource"属性表示从classpath下相应的包中导入文件，并转换成对象写到Configuration对象中
 			(2)"url"属性表示从对应的url中导入相应文件，并转换成对象写到Configuration对象中
 		 -->
-		<mapper resource="com/cmcc/dao/userDao-mapping.xml" />
+		<mapper resource="com/cmcc/mapper/userDao-mapping.xml" />
+		
+		<mapper resource="com/cmcc/mapper/courseDao-mapping.xml"/>
+
+		<mapper resource="com/cmcc/mapper/studentDao-mapping.xml"/>
 	</mappers>
 </configuration>
