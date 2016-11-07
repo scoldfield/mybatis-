@@ -19,12 +19,13 @@ public class UserDaoTest {
         UserDao userMapper = sqlSession.getMapper(UserDao.class);
         User user = userMapper.findUserById(1);
         Assert.assertNotNull("没找到数据", user);
+        System.out.println("user =" + user);
     }
 
     // Mybatis 通过SqlSessionFactory获取SqlSession, 然后才能通过SqlSession与数据库进行交互
     private static SqlSessionFactory getSessionFactory() {
         SqlSessionFactory sessionFactory = null;
-        String resource = "configuration.xml";
+        String resource = "mybatis-conf.xml";
         try {
             /*
              * 1、org.apache.ibatis.io.Resources.getResourceAsReader(String resource)
