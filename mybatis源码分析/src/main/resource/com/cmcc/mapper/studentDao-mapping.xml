@@ -17,7 +17,22 @@
 		</collection>
 	</resultMap>
 	
-	<select id="findStudentById" resultMap="studentMap">
+	<!-- 
+		flushCache属性：<select>标签是默认为false的 
+		useCache属性：<select>标签是默认为true的
+		resultOrdered属性：所有标签默认是false的
+	-->
+	<select id="findStudentById" resultMap="studentMap" >
 		select s.*, c.* from t_student s left join t_course c on s.stu_course_id=c.course_id where stu_id_card = #{idCard}
 	</select>
+	
+	<sql id="">
+		<choose></choose>
+		<foreach collection="" ></foreach>
+		<if test=""></if>
+		<include refid=""/>
+		<set></set>
+		<trim ></trim>
+		<where></where>
+	</sql>
 </mapper>
