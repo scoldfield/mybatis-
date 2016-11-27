@@ -43,5 +43,13 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.12</version>
 		</dependency>
+
+		<!-- 添加mybatis-enhanced-cache -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-enhanced-cache</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 	</dependencies>
 </project>
