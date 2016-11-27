@@ -12,49 +12,48 @@
 		<setting name="logImpl" value="LOG4J" />
 	</settings>
 
-	<!-- 
-	<properties>
-		<property name="driver" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/test1" />
-		<property name="username" value="root" />
-		<property name="password" value="root" />
-	</properties>
-	 -->
-	 
+	<!-- <properties> <property name="driver" value="com.mysql.jdbc.Driver" 
+		/> <property name="url" value="jdbc:mysql://localhost:3306/test1" /> <property 
+		name="username" value="root" /> <property name="password" value="root" /> 
+		</properties> -->
+
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<!-- 如果上面没有指定数据库配置的properties文件，那么此处可以这样直接配置 -->
-				
+
 				<property name="driver" value="com.mysql.jdbc.Driver" />
 				<property name="url" value="jdbc:mysql://localhost:3306/test1" />
 				<property name="username" value="root" />
 				<property name="password" value="root" />
-				
+
 
 				<!-- 上面指定了数据库配置文件， 配置文件里面也是对应的这四个属性 -->
-				<!-- 
-				<property name="driver" value="${driver}" />
-				<property name="url" value="${url}" />
-				<property name="username" value="${username}" />
-				<property name="password" value="${password}" />
-				 -->
+				<!-- <property name="driver" value="${driver}" /> <property name="url" 
+					value="${url}" /> <property name="username" value="${username}" /> <property 
+					name="password" value="${password}" /> -->
 			</dataSource>
 		</environment>
 	</environments>
 
 	<!-- 映射文件，mybatis精髓， 后面才会细讲 -->
 	<mappers>
-		<!-- 
-			<mapper>中有两个属性：
-			(1)"resource"属性表示从classpath下相应的包中导入文件，并转换成对象写到Configuration对象中
-			(2)"url"属性表示从对应的url中导入相应文件，并转换成对象写到Configuration对象中
-		 -->
+		<!-- <mapper>中有两个属性： (1)"resource"属性表示从classpath下相应的包中导入文件，并转换成对象写到Configuration对象中 
+			(2)"url"属性表示从对应的url中导入相应文件，并转换成对象写到Configuration对象中 -->
 		<mapper resource="com/cmcc/mapper/userDao-mapping.xml" />
-		
-		<mapper resource="com/cmcc/mapper/courseDao-mapping.xml"/>
 
-		<mapper resource="com/cmcc/mapper/studentDao-mapping.xml"/>
+		<mapper resource="com/cmcc/mapper/courseDao-mapping.xml" />
+
+		<mapper resource="com/cmcc/mapper/studentDao-mapping.xml" />
 	</mappers>
+
+	<!-- mybatis-cache-enhanced-plugin -->
+	<plugins>
+		<plugin interceptor="org.luanlouis.mybatis.plugin.cache.EnhancedCachingExecutor">
+			<property name="dependency" value="dependencys.xml" />
+			<property name="cacheEnabled" value="true" />
+		</plugin>
+	</plugins>
+
 </configuration>
