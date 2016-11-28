@@ -43,12 +43,35 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.12</version>
 		</dependency>
-		
-		<!-- mybatis分页 -->
+
+		<!-- 添加mybatis-enhanced-cache -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-enhanced-cache</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<!-- mybatis分页支持 -->
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>
 			<artifactId>pagehelper</artifactId>
 			<version>4.1.6</version>
 		</dependency>
+
 	</dependencies>
+	
+	<!-- 当使用maven中央库中的快照版（带"-SNAPSHOT"的版本）时，需要在pom.xml中添加如下配置 -->
+	<repositories>
+		<repository>
+			<id>sonatype-nexus-snapshots</id>
+			<name>Sonatype Nexus Snapshots</name>
+			<url>http://oss.sonatype.org/content/repositories/snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 </project>
